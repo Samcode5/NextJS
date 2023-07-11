@@ -1,0 +1,38 @@
+.mainTitle{
+  font-size: 100px;
+}
+.container{
+
+}
+
+.selectTitle{
+    margin:20px 0px;
+    font-size: 40px;
+}
+
+.items{
+    display:flex;
+    gap:50px;
+}
+
+.item{
+    border:5px solid #555;
+    border-radius: 5px;
+    height:300px;
+    width:300px;
+    position:relative;
+
+}
+
+.title{
+    position: absolute;
+    bottom:10px;
+    right:10px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #bbb;
+}
+
+:hover.title{
+    color:aquamarine;
+}
