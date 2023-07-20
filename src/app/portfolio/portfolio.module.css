@@ -21,7 +21,24 @@
     height:300px;
     width:300px;
     position:relative;
+    
+ 
+}
 
+.item:nth-child(1)
+{
+    background: url("/images/illustration.png");
+    background-size: cover;
+}
+.item:nth-child(2)
+{
+    background: url("/images/websites.jpg");
+    background-size: cover;
+}
+.item:nth-child(3)
+{
+    background: url("/images/apps.jpg");
+    background-size: cover;
 }
 
 .title{
