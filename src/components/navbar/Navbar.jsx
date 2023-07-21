@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import styles from "./navbar.module.css"
+import Toggle from '../DarkModeToggle/toggle'
 const Navbar = () => {
     const links =
     [
@@ -41,6 +42,7 @@ const Navbar = () => {
     <div className={styles.container}>
      <Link href="/" className={styles.logo}>Glorify</Link>
      <div className={styles.links}>
+        <Toggle></Toggle>
      {links.map(link =>(
         <Link key={link.id} href={link.url} className={styles.link}>{link.title}</Link>
      ))}
