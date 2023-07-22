@@ -1,8 +1,21 @@
 import React from 'react'
 import styles from './page.module.css'
 import Image from 'next/image'
-const blogPost = ({params}) => {
-  console.log(params.id)
+async function getData(id) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{cache:'no-store'})
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+ 
+  // Recommendation: handle errors
+  if (!res.ok) {
+   return PageNotFoundError();
+   // This will activate the closest `error.js` Error Boundary
+  }
+ 
+  return res.json()
+}
+const blogPost = async ({params}) => {
+const data = await getData(params.id);
   return (
     <div className={styles.container}>
     <div className={styles.top}>
