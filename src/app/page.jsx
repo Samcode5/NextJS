@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from "./page.module.css";
 import cover from "../../public/images/cover.jpg";
 import Link from 'next/link';
+import connect from '@/utils/db';
 
 export default function Home() {
   return (

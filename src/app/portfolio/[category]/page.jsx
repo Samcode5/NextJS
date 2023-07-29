@@ -2,15 +2,30 @@ import React from 'react'
 import styles from "./page.module.css";
 import Button from '@/components/button/Button';
 import Image from 'next/image';
+import {items} from './data';
+import { PageNotFoundError } from 'next/dist/shared/lib/utils';
 
-const category = ({params}) => {
+const getData =(category) =>{
+  const data = items[category];
+  if(data)
+  {
+    return data;
+  }
+
+  return Error;
+}
+
+const  category =  async ({params}) => {
+  const data= await getData(params.category);
+
   return (
     <div className={styles.container}>
       <div className={styles.catTitle}>{params.category}</div>
-     <div className={styles.item}>
+      {data.map((item) => 
+     <div className={styles.item} key={item.id}>
       <div className={styles.content}>
-        <h1 className={styles.title}>Test</h1>
-        <p className={styles.desc}>Desc</p>
+        <h1 className={styles.title}>{item.title}</h1>
+        <p className={styles.desc}>{item.desc}</p>
         <Button type="See More" url="#"></Button>
       </div>
       <div className={styles.imgContainer}>
@@ -22,7 +37,9 @@ const category = ({params}) => {
         />
       </div>
      </div>
+)}
     </div>
+    
   )
 }
 
