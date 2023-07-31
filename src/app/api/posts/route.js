@@ -5,7 +5,7 @@ import { NextResponse } from "next/server"
 
 export const GET = async(request) =>{
    try{
-   
+      
     const users=await User.find()
     return new NextResponse(users,{status:200});
    }

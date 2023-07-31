@@ -12,8 +12,8 @@ const connect = async ()=>{
         console.log(error);
         throw new Error(error);
     }
-   connect();
-    
+
+    await connect();
 }
 
 export default connect;
