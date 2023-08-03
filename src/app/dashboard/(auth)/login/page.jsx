@@ -1,9 +1,13 @@
+"use client"
 import React from 'react'
-
-const login = () => {
+import { signIn } from 'next-auth/react'
+import styles from './page.module.css';
+const Login = () => {
   return (
-    <div>login</div>
+    <div className={styles.container}>
+      <button onClick={async() => await signIn('google')}>Login with Google</button>
+    </div>
   )
 }
 
-export default login
+export default Login

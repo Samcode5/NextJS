@@ -2,10 +2,14 @@
 import useSWR from 'swr'
 import { PageNotFoundError } from 'next/dist/shared/lib/utils';
 import React, { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react';
 
 
-const  fetcher = (...args) => fetch(...args).then((res) =>  res.json())
+const  fetcher = (...args) => fetch(...args).then((res) =>  res.json());
+
  const dashBoard = () => {
+  const session = useSession()
+  console.log(session);
   // useEffect(() =>{
   //   async function getData(){
   //     const res= await fetch("https://jsonplaceholder.typicode.com/posts",{cache:"no-store"})
@@ -22,7 +26,7 @@ const  fetcher = (...args) => fetch(...args).then((res) =>  res.json())
   //    getData();
   // },[])
   const {data,error} = useSWR('https://jsonplaceholder.typicode.com/posts',fetcher)
-  console.log(data);
+  // console.log(data);
   return (
   
     <div>Dashboard</div>
